@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import PostAuthor from './PostAuthor'
 import TimeAgo from './TimeAgo'
+import ReactionButtons from './ReactionButtons'
 
 const PostsList = () => {
     const posts = useSelector(state => state.posts);
@@ -22,6 +23,7 @@ const PostsList = () => {
             <Link to={`/editPost/${post.id}`} className='button muted-button'>
                 Edit post
             </Link>
+            <ReactionButtons post={post} />
         </article>
     ))
 

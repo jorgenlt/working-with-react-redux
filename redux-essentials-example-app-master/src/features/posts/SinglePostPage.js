@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import PostAuthor from './PostAuthor'
 import TimeAgo from './TimeAgo'
+import ReactionButtons from './ReactionButtons'
 
 const SinglePostPage =  ({ match }) => {
     const { postId } = match.params;
@@ -28,6 +29,7 @@ const SinglePostPage =  ({ match }) => {
                 <TimeAgo timestamp={post.date} />
                 <p className='post-content'>{post.content}</p>
                 <Link to={`/editPost/${post.id}`} className='button'>Edit post</Link>
+                <ReactionButtons post={post} />
             </article>
         </section>
     )
