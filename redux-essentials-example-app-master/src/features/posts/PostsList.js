@@ -9,7 +9,7 @@ import { selectAllPosts, fetchPosts } from './postsSlice'
 
 import Spinner from '../../components/Spinner'
 
-const PostExerpt = ({ post }) => {
+let PostExcerpt = ({ post }) => {
     return (
     <article className="post-excerpt">
         <h3>{post.title}</h3>
@@ -25,6 +25,8 @@ const PostExerpt = ({ post }) => {
     </article>
     )
 }
+
+PostExcerpt = React.memo(PostExcerpt);
 
 const PostsList = () => {
     const dispatch = useDispatch();
@@ -51,7 +53,7 @@ const PostsList = () => {
         
         content = orderedPosts.map(post => {
             return (
-                <PostExerpt key={post.id} post={post} />
+                <PostExcerpt key={post.id} post={post} />
             )
         });
     } else if(postStatus === 'failed') {
